@@ -1,4 +1,4 @@
-export const initlizeState = [
+const initlizeState = [
   {
     id: 1,
     text: "Learn With Jubair",
@@ -11,3 +11,5 @@ export const initlizeState = [
     color: "red",
   },
 ];
+
+export default initlizeState;

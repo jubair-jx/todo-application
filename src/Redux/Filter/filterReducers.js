@@ -29,7 +29,7 @@ const filterReducers = (state = initialState, action) => {
       }
 
     default:
-      state;
+      return state;
   }
 };
 export default filterReducers;

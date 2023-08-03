@@ -36,12 +36,12 @@ export const deleted = (todoId) => {
     payload: todoId,
   };
 };
-export const colorSelected = (todoColor, todoId) => {
+export const colorSelected = (todoId, todoColor) => {
   return {
     type: SELECTEDCOLOR,
     payload: {
-      todoColor,
       todoId,
+      todoColor,
     },
   };
 };

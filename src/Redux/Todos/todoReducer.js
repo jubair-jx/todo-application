@@ -1,3 +1,4 @@
+import initialState from "../Todos/initiliazeState";
 import {
   ADDEDTASK,
   CLEARTASK,
@@ -6,13 +7,12 @@ import {
   SINGLEDELETED,
   TOGGELED,
 } from "./actionTypes";
-import { initlizeState } from "./initiliazeState";
 
 const nextTodoId = (todos) => {
   const maxId = todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1);
   return maxId + 1;
 };
-const todoReducer = (state = initlizeState, action) => {
+const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADDEDTASK:
       return [
@@ -29,17 +29,17 @@ const todoReducer = (state = initlizeState, action) => {
         }
         return {
           ...todo,
-          completed: !completed,
+          completed: !todo.completed,
         };
       });
     case SELECTEDCOLOR:
-      const { todoColor, todoId } = action.payload;
+      const { todoId, todoColor } = action.payload;
       return state.map((todo) => {
         if (todo.id !== todoId) {
-          return todoId;
+          return todo;
         }
         return {
-          ...state,
+          ...todo,
           color: todoColor,
         };
       });
@@ -56,7 +56,7 @@ const todoReducer = (state = initlizeState, action) => {
       return state.filter((todo) => !todo.completed);
 
     default:
-      state;
+      return state;
   }
 };
 
