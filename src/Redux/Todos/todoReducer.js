@@ -56,6 +56,7 @@ const todoReducer = (state = initlizeState, action) => {
       return state.filter((todo) => !todo.completed);
 
     default:
+      state;
   }
 };
 
